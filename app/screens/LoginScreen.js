@@ -1,15 +1,17 @@
 import React from 'react'
 import {
+  Image,
   TextInput,
   TouchableOpacity,
   View,
   Text,
 } from 'react-native'
-import { NavigationActions } from 'react-navigation';
+import { NavigationActions } from 'react-navigation'
 import { isEmailValid } from 'utils/str'
+import { Apptentive } from 'utils/analytics'
 import { RoundBtn, RoundBtnTheme } from 'components/Buttons'
 import { RectTextInput } from 'components/RectTextInput'
-import { RouteNames } from 'navigation';
+import { RouteNames } from 'navigation'
 import { styles } from 'styles'
 import { manager } from '../manager'
 
@@ -30,6 +32,7 @@ class LoginScreen extends React.Component {
   componentDidMount() {
     this.mounted = true;
     console.log('loginscreenmounted')
+    Apptentive.engageEvent('kielan_apptentive_alt_login');
   }
 
   componentWillUnmount() {
@@ -85,7 +88,7 @@ class LoginScreen extends React.Component {
       passErr, showPass, processing,
     } = this.state;
     return (
-      <View style={{ backgroundColor: 'red' }}>
+      <View style={{ backgroundColor: 'transparent' }}>
         <View style={styles.form}>
           <RectTextInput
             testID="emailInput"
