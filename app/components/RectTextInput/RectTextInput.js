@@ -3,8 +3,10 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Image,
 } from 'react-native'
 import { styles } from 'styles'
+import { SearchIcon } from 'components/SvgIcons'
 
 class RectTextInput extends Component {
   render() {
@@ -17,7 +19,10 @@ class RectTextInput extends Component {
       blurOnSubmit,
     } = this.props;
     return (
-      <View style={styles.containerStyle}>
+      <View style={[styles.containerStyle, {flexDirection: 'row'}]}>
+        <View style={{ height: 20, width: 20, marginRight: 7 }}>
+          <SearchIcon height={20} width={20} />
+        </View>
         <TextInput
           multiline={multiline}
           ref={inputRef}

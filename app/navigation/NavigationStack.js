@@ -6,15 +6,16 @@ import {
   createSwitchNavigator
 } from 'react-navigation'
 
-import { AuthLoadingScreen, LoginScreen, HomeScreen } from 'screens'
+import { AuthLoadingScreen, LandingScreen, LoginScreen, HomeScreen } from 'screens'
 
 const AppStack = createStackNavigator({
   Home: HomeScreen,
 })
 
 const AuthStack = createStackNavigator({
+  LandingScreen: LandingScreen,
   LoginScreen: LoginScreen,
-})
+}, { headerMode: 'none' })
 
 const NavigationStack = createAppContainer(createSwitchNavigator(
   {
