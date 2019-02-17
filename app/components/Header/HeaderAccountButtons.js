@@ -27,28 +27,67 @@ class HeaderAccountButtons extends React.Component {
      onPress,
     } = this.props
     return (
-      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-      <TouchableOpacity
-        onPress={this.onPressInvites}
-        style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}
-      >
-      <View style={{ height: 24, width: 24 }}>
-        <GiftsIcon height={24} width={24} />
+      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', paddingTop: this.props.topHeader }}>
+      <View style={{
+              flexDirection: 'row',
+              flex: 1,
+              alignItems: 'center',
+              borderLeftColor: '#C3C3C3',
+              borderRightColor: '#C3C3C3',
+              underlayColor: "#ffffff",
+              paddingHorizontal: 18,
+              borderLeftWidth: StyleSheet.hairlineWidth,
+             }}>
+        <TouchableOpacity
+          onPress={this.onPressInvites}
+          style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}
+        >
+          <View style={{ height: 24, width: 24 }}>
+            <SearchIcon height={24} width={24} />
+          </View>
+        </TouchableOpacity>
       </View>
-      </TouchableOpacity>
-      <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+      <View style={{
+              flexDirection: 'row',
+              flex: 1,
+              alignItems: 'center',
+              borderLeftColor: '#C3C3C3',
+              borderRightColor: '#C3C3C3',
+              underlayColor: "#ffffff",
+              paddingHorizontal: 18,
+              borderLeftWidth: StyleSheet.hairlineWidth,
+             }}>
+        <TouchableOpacity
+          onPress={this.onPressInvites}
+          style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}
+        >
+          <View style={{ height: 24, width: 24 }}>
+            <GiftsIcon height={24} width={24} />
+          </View>
+        </TouchableOpacity>
+      </View>
+      <View style={{
+             flexDirection: 'row',
+             flex: 1,
+             alignItems: 'center',
+             borderLeftColor: '#C3C3C3',
+             borderRightColor: '#C3C3C3',
+             underlayColor: "#ffffff",
+             paddingHorizontal: 18,
+             borderLeftWidth: StyleSheet.hairlineWidth,
+             borderRightWidth: StyleSheet.hairlineWidth,
+             justifyContent: 'center'
+     }}>
       <TouchableOpacity
         onPress={this.onPressNotifications}
         style={{ alignItems: 'center' }}
       >
-      <View style={{ flexDirection: 'row', flex: 1, alignItems: 'center', borderLeftColor: '#C3C3C3', borderRightColor: '#C3C3C3', underlayColor: "#ffffff", paddingHorizontal: 14, marginHorizontal: 14, borderLeftWidth: StyleSheet.hairlineWidth, borderRightWidth: StyleSheet.hairlineWidth}}>
         <View style={{ height: 24, width: 24 }}>
           <NotificationsIcon height={24} width={24} />
         </View>
-      </View>
       </TouchableOpacity>
       </View>
-      <View style={{width: 44, height: 44, marginRight: 14}} >
+      <View style={{ paddingHorizontal: 18 }}>
         <TouchableOpacity
           onPress={this.onPressProfile}
           style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}

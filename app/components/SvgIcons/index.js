@@ -1,3 +1,6 @@
 export * from './GiftsIcon'
 export * from './NotificationsIcon'
 export * from './SearchIcon'
+export * from './ChatBubbleIcon'
+export * from './HeartIcon'
+export * from './MagicIcon'

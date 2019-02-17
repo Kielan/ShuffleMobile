@@ -5,16 +5,20 @@ import {
   Linking,
   TouchableOpacity,
   View,
+  StyleSheet,
   Text,
 } from 'react-native'
 import { smartRender } from 'utils'
 import { Card } from './Card'
 import { UserBar } from './UserBar'
+import { Footer } from './Footer'
 import { styles } from 'styles'
+import { RectTextInput } from 'components/RectTextInput'
 
 export class Activity extends React.Component {
   static defaultProps = {
     Card,
+    Footer,
     activityActor: {
       data: {
         name: 'kielan',
@@ -130,7 +134,12 @@ export class Activity extends React.Component {
     text = text.trim();
 
     return (
-      <View style={{flex: 1, minHeight: 150 }}>
+      <View style={{
+        flex: 1, minHeight: 150,
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.4,
+        shadowRadius: 8
+      }}>
         {Boolean(text) && (
           <View style={styles.content}>
             <Text>{this.renderText(text, this.props.activity)}</Text>
@@ -171,14 +180,31 @@ export class Activity extends React.Component {
     );
   };
 
+  renderResponseBar = () => {
+    return (
+      <View style={{ }}>
+        <View>
+          <Image />
+          <RectTextInput
+              placeholder={``} />
+        </View>
+      </View>
+    )
+  }
+
   render() {
     const { Header, Content, Footer } = this.props;
     const { time } = this.props.activity
     const actor = this.props.activityActor
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{
+              flex: 1, marginTop: 25, shadowColor: '#000',
+            shadowOffset: { width: 4, height: -4 },
+            shadowOpacity: 0.1,
+            shadowRadius: 3
+      }}>
       <TouchableOpacity
-        style={[styles.container, { flexDirection: 'column', flex: 1 }]}
+        style={[styles.container, { flexDirection: 'column', flex: 1, }]}
         onPress={this._getOnPress()}
         disabled={!this._getOnPress()}
       >
@@ -190,10 +216,14 @@ export class Activity extends React.Component {
         icon={this.props.icon}
         onPressAvatar={this._getOnPressAvatar()}
       />
-      <View style={{flex: 1, minHeight: 150 }}>
-
+      <View style={{
+        flex: 1, minHeight: 150,
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.1,
+        shadowRadius: 3
+       }}>
         {smartRender(Content, {}, this.renderContent)}
-
+        {smartRender(Footer, {}, this.renderResponseBar)}
       </View>
       </TouchableOpacity>
       </View>

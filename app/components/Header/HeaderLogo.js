@@ -12,13 +12,13 @@ class HeaderLogo extends React.Component {
      onPress,
     } = this.props
     return (
-      <View style={{ flex: 1, backgroundColor: colors.primaryOrange, color: colors.primaryOrange, width: 44, height: 44 }}>
-      <TouchableOpacity
-        onPress={onPress}
-        style={{flex: 1, justifyContent: 'center', alignItems: 'center' }}
-      >
-      <Text style={[styles.logoTextStyle, { color: colors.whiteOne, fontSize: 18 }]}>{`S`}</Text>
-      </TouchableOpacity>
+      <View style={{ flex: 1, backgroundColor: colors.primaryOrange, color: colors.primaryOrange, maxWidth: 64, width: 64 }}>
+        <TouchableOpacity
+          onPress={onPress}
+          style={{flex: 1, justifyContent: 'center', alignItems: 'center' }}
+        >
+        <Text style={[styles.logoTextStyle, { color: colors.whiteOne, fontSize: 18 }]}>{`S`}</Text>
+        </TouchableOpacity>
       </View>
     )
   }

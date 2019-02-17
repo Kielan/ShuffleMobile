@@ -18,11 +18,13 @@ class RectTextInput extends Component {
       testID, valid, value, isIconActive, multiline, placeholderTextColor,
       blurOnSubmit,
     } = this.props;
+/*
+<View style={{ height: 20, width: 20, marginRight: 7 }}>
+  <SearchIcon height={20} width={20} />
+</View>
+*/
     return (
       <View style={[styles.containerStyle, {flexDirection: 'row'}]}>
-        <View style={{ height: 20, width: 20, marginRight: 7 }}>
-          <SearchIcon height={20} width={20} />
-        </View>
         <TextInput
           multiline={multiline}
           ref={inputRef}

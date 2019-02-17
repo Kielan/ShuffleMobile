@@ -1,12 +1,20 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity, Linking } from 'react-native'
+import { View, Text, Image, TouchableOpacity, Linking, StyleSheet } from 'react-native'
 import { styles } from 'styles'
 import _ from 'lodash'
 
 const Card = (props) => {
   const { title, content, image, url } = props;
   return (
-    <View><TouchableOpacity
+    <View style={{
+            flex: 1,
+          //  borderLeftWidth: StyleSheet.hairlineWidth,
+            borderRightColor: '#C3C3C3',
+            borderLeftColor: '#C3C3C3',
+            shadowOffset: { width: 4, height: 0 },
+            shadowOpacity: 0.1,
+            shadowRadius: 3
+           }}><TouchableOpacity
       onPress={() => {
         Linking.openURL(url);
       }}

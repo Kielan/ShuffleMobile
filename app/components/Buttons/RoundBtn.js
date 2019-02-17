@@ -26,12 +26,12 @@ class RoundBtn extends PureComponent {
     return (
       <TouchableOpacity
         testID={testID}
-        style={styles.containerStyle}
+        style={styles.RoundBtnStyle}
         onPress={this.onPress}
         disabled={disabled}
       >
         {!loading ? (
-          <Text style={styles.compTextStyle}>
+          <Text style={styles.BtnTextStyle}>
             {title}
           </Text>
         ) : (
