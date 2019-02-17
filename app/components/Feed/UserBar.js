@@ -24,13 +24,25 @@ export class UserBar extends React.Component {
   //        <TouchableOpacity onPress={onPressAvatar} disabled={!onPressAvatar}>
   //        </TouchableOpacity>
     return (
-      <View style={[styles.container, { flex: 1, flexDirection: 'row', alignItems: 'center', backgroundColor: colors.whiteTwo, height: 86, maxHeight: 86 }]}>
+      <View style={[
+        styles.container,
+         {
+           flex: 1,
+           flexDirection: 'row',
+           alignItems: 'center',
+           backgroundColor: colors.whiteTwo,
+           height: 86, maxHeight: 86,
+           borderTopRightRadius: 8,
+           borderTopLeftRadius: 8,
+           paddingHorizontal: 15,
+         }
+       ]}>
         {avatar &&
-            <View style={{ flexDirection: 'row', maxHeight: 64, maxWidth: 64, height: 64, width: 64}}>
-            <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center'}} onPress={onPressAvatar} disabled={!onPressAvatar}>
-            <View style={{ height: 32, width: 32}}>
+            <View style={{ flexDirection: 'row', maxHeight: 64, maxWidth: 64, height: 64, width: 64, borderRadius: 64/2, }}>
+            <TouchableOpacity style={{flex: 1}} onPress={onPressAvatar} disabled={!onPressAvatar}>
+            <View style={{ height: 32, width: 32, maxWidth: 32, maxHeight: 32 }}>
             <Image
-              styles={[{ flex:1 , width: undefined, height: 64, borderRadius: 64/2 }]}
+              styles={[{ flex:1 , width: undefined, height: undefined, borderRadius: 64/2 }]}
               source={require('assets/kielanshufflesmall.png')}
             />
             </View>
@@ -39,21 +51,15 @@ export class UserBar extends React.Component {
         }
 
         <View style={{ flex: 1, height: 64, flexDirection: 'row', alignItems: 'center'}}>
-          <Text style={styles.username}>{username}</Text>
-          <View style={{ flexDirection: 'row', width: 24, height: 24, maxHeight: 32 }}>
-            {/*icon !== undefined ? (
-              <Image
-                source={icon}
-                style={{ width: 24, height: 24, maxHeight: 32, maxWidth: 32, top: -2, marginRight: 25 }}
-              />
-            ) : null*/}
-            {subtitle && <Text style={styles.subtitle}>{'subtitle'}</Text>}
+          <View style={{ flexDirection: 'column', justifyContent: 'space-around', height: 64, maxHeight: 64 }}>
+            <Text style={[styles.username, { textTransform: 'uppercase', color: colors.primaryBlue }]}>{username}</Text>
+            <Text style={{textTransform: 'uppercase', color: colors.greyTwo }}>{'sf'}</Text>
           </View>
         </View>
 
-        <View>
-          <Text>{'culinary arts'}</Text>
-          <Text>{'follow interest'}</Text>
+        <View style={{ flexDirection: 'column', justifyContent: 'space-around', height: 64, maxHeight: 64 }}>
+          <Text style={{ textTransform: 'uppercase', textAlign: 'right', fontSize: 13 }}>{'culinary arts'}</Text>
+          <Text style={{ textTransform: 'uppercase', textAlign: 'right', fontSize: 10 }}>{'follow interest'}</Text>
         </View>
         {time && (
           <View>
