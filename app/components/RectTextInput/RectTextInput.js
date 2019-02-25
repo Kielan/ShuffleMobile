@@ -11,7 +11,7 @@ import { SearchIcon } from 'components/SvgIcons'
 class RectTextInput extends Component {
   render() {
     const {
-      autoCapitalize, autoCorrect, editable, error, icon, iconPressEnabled,
+      autoCapitalize, autoCorrect, containerStyle, editable, error, icon, iconPressEnabled,
       inputRef, keyboardType, onChangeText, onIconPress, onSubmitEditing,
       placeholder, returnKeyType, secureTextEntry, selectTextOnFocus,
       style, textInputStyle, iconStyle, iconContainerStyle, iconSource,
@@ -24,7 +24,7 @@ class RectTextInput extends Component {
 </View>
 */
     return (
-      <View style={[styles.containerStyle, {flexDirection: 'row'}]}>
+      <View style={[containerStyle, {flexDirection: 'row'}]}>
         <TextInput
           multiline={multiline}
           ref={inputRef}

@@ -7,8 +7,10 @@ import { styles, colors } from 'styles'
 class HeaderLeftGroup extends React.Component {
   render() {
     return (
-      <View style={{flexDirection: 'row'}}>
-        <View style={{ backgroundColor: colors.primaryOrange, paddingTop: this.props.topHeader }}><HeaderLogo /></View>
+      <View style={{ backgroundColor: 'transparent', color: 'transparent', flexDirection: 'row' }}>
+        <View style={{ backgroundColor: 'transparent', color: 'transparent', paddingTop: this.props.topHeader }}>
+          <HeaderLogo {...this.props} />
+        </View>
       </View>
     )
   }
