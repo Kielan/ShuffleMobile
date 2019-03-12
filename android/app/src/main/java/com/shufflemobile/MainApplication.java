@@ -3,6 +3,8 @@ package com.shufflemobile;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.taluttasgiran.rnsecurestorage.RNSecureStoragePackage;
+import org.reactnative.camera.RNCameraPackage;
 import com.horcrux.svg.SvgPackage;
 import com.apptentive.android.sdk.reactlibrary.RNApptentivePackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -26,6 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNSecureStoragePackage(),
+            new RNCameraPackage(),
             new SvgPackage(),
             new RNApptentivePackage(),
             new RNGestureHandlerPackage()

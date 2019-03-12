@@ -9,7 +9,7 @@ class SearchIcon extends React.Component {
       <View
         style={[
           StyleSheet.absoluteFill,
-          { alignItems: 'center', justifyContent: 'center' },
+          { alignItems: 'center', justifyContent: 'center', backgroundColor: 'transparent' },
         ]}>
         <Svg height="100%" width="100%" viewBox="0 0 64 64"
             preserveAspectRatio="xMidYMid meet"

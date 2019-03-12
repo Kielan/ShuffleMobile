@@ -1,25 +1,75 @@
 import React from 'react'
 import {
+  Animated,
+  Easing,
+} from 'react-native'
+import {
   StackNavigator,
   createStackNavigator,
   createAppContainer,
-  createSwitchNavigator
+  createSwitchNavigator,
+  createBottomTabNavigator,
+  createMaterialTopTabNavigator,
 } from 'react-navigation'
-import { AuthLoadingScreen, LandingScreen, LoginScreen, HomeScreen, MakeAPostScreen } from 'screens'
+import { AuthLoadingScreen, CameraScreen, LandingScreen, LoginScreen, HomeScreen, MakeAPostScreen, ProfileScreen, SearchScreen,  } from 'screens'
 import { ShuffleHeader } from 'components/Header'
+import { createShuffleTopNavigator } from './createShuffleTopNavigator'
 
-const AppStack = createStackNavigator({
+const TabNavigator = createMaterialTopTabNavigator({
+  Camera: {
+    screen: CameraScreen,
+      navigationOptions: {
+          tabBarVisible: false,
+          headerVisible: false,
+      },
+  },
   Home: {
     screen: HomeScreen,
     navigationOptions: {
-        header: props => <ShuffleHeader {...props} />,
-    }
+        tabBarVisible: false,
+    },
   },
+  Profile: {
+    screen: ProfileScreen,
+    navigationOptions: {
+        tabBarVisible: false,
+    },
+  },
+}, {
+  swipeEnabled: true,
+  tabBarPosition: 'top',
+//  tabBarVisible: false,
+//  tabBarComponent
+    navigationOptions: {
+        header: props => {console.log('navigationOptions header props', props); return props.scene.route.index !== 0 ? <ShuffleHeader {...props} /> : null;},
+        gesturesEnabled: true,
+  //      tabBarVisible: false,
+        headerStyle: {
+          backgroundColor: 'transparent',
+          color: 'transparent',
+        },
+        tabBarOptions: {
+          style: {
+            backgroundColor: 'transparent',
+            color: 'transparent',
+          }
+        }
+    },
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: 'transparent',
+        color: 'transparent',
+      },
+    }
+})
+
+const AppStack = createStackNavigator({
+  TabView: TabNavigator,
   MakeAPost: {
     screen: MakeAPostScreen,
     navigationOptions: {
         mode: 'modal',
-        header: props => <ShuffleHeader {...props} />,
+        header: props => {let displayHeader = (props.scene.route.index === 0) ? null : <ShuffleHeader {...props} />; return displayHeader},
         transitionConfig: () => ({
           transitionSpec: {
             duration: 300,
@@ -63,6 +113,13 @@ const AppStack = createStackNavigator({
          },
        }),
       }
+    },
+    Search: {
+      screen: SearchScreen,
+    },
+  }, {
+    cardStyle: {
+      backgroundColor: 'transparent'
     }
   }
 )

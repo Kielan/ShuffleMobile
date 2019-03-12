@@ -12,7 +12,7 @@ class HeaderSearch extends React.Component {
       onPress,
     } = this.props;
     return (
-      <View style={{flex: 1, marginHorizontal: 9, alignItems: 'center', justifyContent: 'center', paddingTop: this.props.topHeader }}>
+      <View style={{flex: 1, marginHorizontal: 9, alignItems: 'center', justifyContent: 'center', paddingTop: this.props.topHeader, backgroundColor: 'transparent', color: 'transparent' }}>
         <RectTextInput
             placeholder={``} />
       </View>

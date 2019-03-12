@@ -15,11 +15,11 @@ class HomeScreen extends React.Component {
     //Apptentive.engageEvent('kielan_apptentive_alt_home');
   }
   makeAPost = () => {
-    this.props.navigation.navigate('MakeAPost')
+    this.props.navigation.navigate('Camera')
   }
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1}}>
         <ShuffleApp>
           <InterestSifter />
           <View style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 30, paddingBottom: 5 }}>

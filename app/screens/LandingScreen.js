@@ -9,10 +9,14 @@ import {
 } from 'react-native'
 import { RoundBtn } from 'components/Buttons'
 import { colors } from 'styles'
+import { Firebase } from 'utils/analytics'
 
 class LandingScreen extends React.Component {
   constructor(props) {
     super(props);
+  }
+  componentDidMount() {
+    Firebase.logEvent('Landing_Screen_Success')
   }
   login = () => {
     this.props.navigation.navigate('App');
@@ -24,7 +28,7 @@ class LandingScreen extends React.Component {
         <View style={{flex: 1}}>
             <Text style={{ color: colors.primaryOrange, fontSize: 52, textAlign: 'center' }}>shuffle</Text>
             <Text style={{ color: colors.whiteFour, fontSize: 16, textAlign: 'center' }}>community for what you do</Text>
-          <View style={{flex: 1, maxwidth: Dimensions.get('window').width, maxHeight: 500}}><Image
+          <View style={{ flex: 1, maxwidth: Dimensions.get('window').width, maxHeight: 500}}><Image
             style={{
               flex: 1,
               resizeMode: 'contain',
