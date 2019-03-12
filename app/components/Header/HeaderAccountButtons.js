@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Animated,
   Image,
   StyleSheet,
   Text,
@@ -28,10 +29,11 @@ class HeaderAccountButtons extends React.Component {
   render() {
     const {
      onPress,
+     snapChatHairlineLayout,
     } = this.props
     return (
       <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', paddingTop: this.props.topHeader, backgroundColor: 'transparent', color: 'transparent' }}>
-      <View style={{
+      <Animated.View style={{
               flexDirection: 'row',
               flex: 1,
               alignItems: 'center',
@@ -39,7 +41,7 @@ class HeaderAccountButtons extends React.Component {
               borderRightColor: '#C3C3C3',
             //  underlayColor: "#ffffff",
               paddingHorizontal: 2,
-              borderLeftWidth: StyleSheet.hairlineWidth,
+              borderLeftWidth: snapChatHairlineLayout,
               backgroundColor: 'transparent',
               color: 'transparent'
              }}>
@@ -51,8 +53,8 @@ class HeaderAccountButtons extends React.Component {
             <SearchIcon height={18} width={18} />
           </View>
         </TouchableOpacity>
-      </View>
-      <View style={{
+      </Animated.View>
+      <Animated.View style={{
               flexDirection: 'row',
               flex: 1,
               alignItems: 'center',
@@ -60,7 +62,7 @@ class HeaderAccountButtons extends React.Component {
               borderRightColor: '#C3C3C3',
           //    underlayColor: "#ffffff",
               paddingHorizontal: 2,
-              borderLeftWidth: StyleSheet.hairlineWidth,
+              borderLeftWidth: snapChatHairlineLayout,
              }}>
         <TouchableOpacity
           onPress={this.onPressInvites}
@@ -70,8 +72,8 @@ class HeaderAccountButtons extends React.Component {
             <GiftsIcon height={18} width={18} />
           </View>
         </TouchableOpacity>
-      </View>
-      <View style={{
+      </Animated.View>
+      <Animated.View style={{
              flexDirection: 'row',
              flex: 1,
              alignItems: 'center',
@@ -79,8 +81,8 @@ class HeaderAccountButtons extends React.Component {
              borderRightColor: '#C3C3C3',
         //     underlayColor: "#ffffff",
              paddingHorizontal: 12,
-             borderLeftWidth: StyleSheet.hairlineWidth,
-             borderRightWidth: StyleSheet.hairlineWidth,
+             borderLeftWidth: snapChatHairlineLayout,
+             borderRightWidth: snapChatHairlineLayout,
              justifyContent: 'center'
      }}>
       <TouchableOpacity
@@ -91,7 +93,7 @@ class HeaderAccountButtons extends React.Component {
           <NotificationsIcon height={18} width={18} />
         </View>
       </TouchableOpacity>
-      </View>
+      </Animated.View>
       <View style={{ paddingHorizontal: 12 }}>
         <TouchableOpacity
           onPress={this.onPressProfile}

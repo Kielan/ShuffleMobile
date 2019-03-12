@@ -11,6 +11,7 @@ class HeaderLogo extends React.Component {
     console.log('HeaderLogo this.props', this.props)
     const {
      onPress,
+     styleThemeStage,
     } = this.props
 
     let backgroundLogoColor;
@@ -23,12 +24,12 @@ class HeaderLogo extends React.Component {
       logoTextColor = colors.whiteOne
 //    }
     return (
-      <View style={{ flex: 1, backgroundColor: backgroundLogoColor, color: backgroundLogoColor, maxWidth: 64, width: 64 }}>
+      <View style={[styleThemeStage.logoBackground, { flex: 1, maxWidth: 64, width: 64 }]}>
         <TouchableOpacity
           onPress={onPress}
-          style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: backgroundLogoColor, color: backgroundLogoColor}}
+          style={[styleThemeStage.logoBackground, {flex: 1, justifyContent: 'center', alignItems: 'center'}]}
         >
-        <Text style={[styles.logoTextStyle, { color: logoTextColor, fontSize: 18 }]}>{`S`}</Text>
+        <Text style={[styleThemeStage.logoText, styles.logoTextStyle, { color: logoTextColor, fontSize: 18 }]}>{`S`}</Text>
         </TouchableOpacity>
       </View>
     )

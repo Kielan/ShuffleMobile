@@ -13,13 +13,15 @@ import {
 } from 'react-navigation'
 import { AuthLoadingScreen, CameraScreen, LandingScreen, LoginScreen, HomeScreen, MakeAPostScreen, ProfileScreen, SearchScreen,  } from 'screens'
 import { ShuffleHeader } from 'components/Header'
+import { createShuffleTopNavigator } from './createShuffleTopNavigator'
 
 const TabNavigator = createMaterialTopTabNavigator({
   Camera: {
     screen: CameraScreen,
-    navigationOptions: {
-        tabBarVisible: false,
-    },
+      navigationOptions: {
+          tabBarVisible: false,
+          headerVisible: false,
+      },
   },
   Home: {
     screen: HomeScreen,
@@ -39,7 +41,7 @@ const TabNavigator = createMaterialTopTabNavigator({
 //  tabBarVisible: false,
 //  tabBarComponent
     navigationOptions: {
-        header: props => {console.log('navigationOptions hedaer props', props); let displayHeader = (props.scene.route.index === 0) ? null : <ShuffleHeader {...props} />; return displayHeader},
+        header: props => {console.log('navigationOptions header props', props); return props.scene.route.index !== 0 ? <ShuffleHeader {...props} /> : null;},
         gesturesEnabled: true,
   //      tabBarVisible: false,
         headerStyle: {

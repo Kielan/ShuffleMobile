@@ -36,14 +36,25 @@ export class CameraScreen extends React.Component {
     if (!this.state.shouldRenderCamera) {
       return;
     }
+    const cameraScreenHeaderStyle = {
+      styleThemeStage: {
+        logoBackground: {
+          color: 'transparent'
+        },
+        logoText: {
+          color: colors.whiteOne
+        },
+      }
+    }
     console.log('_maybeRenderCamera', props)
     return (
       <RNCamera
         ref={cam => {
           this.camera = cam;
         }}
-        style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}
+        style={{ flex: 1, justifyContent: 'space-between', alignItems: 'center'}}
       >
+        <ShuffleHeader styleThemeStage={cameraScreenHeaderStyle} />
         <View style={{width: 100, height: 100, backgroundColor: colors.whiteFive}}>
           <TouchableOpacity style={{flex: 1}} onPress={this.takePicture}>
             <Text style={{ color: colors.whiteTwo }}>take photo</Text>
