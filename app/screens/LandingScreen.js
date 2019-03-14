@@ -16,7 +16,7 @@ class LandingScreen extends React.Component {
     super(props);
   }
   componentDidMount() {
-    Firebase.logEvent('Landing_Screen_Success')
+    Firebase.logEvent('Landing_Screen_Success', {versionName: 'pureCoco'})
   }
   login = () => {
     this.props.navigation.navigate('App');
